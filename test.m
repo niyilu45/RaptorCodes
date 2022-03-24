@@ -5,6 +5,13 @@ function [out] = test()
     seed = 0;
     rng(seed);
 
+
+    RaptorFuncs = RaptorFuncsCluster();
+    raptorParas = RaptorFuncs.Init();
+    data = logical(randi([0 1],raptorParas.K,1));
+    codeOut = RaptorFuncs.Encoder(data, raptorParas);
+
+    error('auto')
     [LDPCfuncs] = LDPCFuncsCluster();
     LDPCParas = LDPCfuncs.Init();
 
